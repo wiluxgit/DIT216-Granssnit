@@ -38,9 +38,27 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Illegal Maven tech -->
+        <dependency>
+            <groupId>se.chalmers.cse.dat215.lab1</groupId>
+            <artifactId>dat215.lab1</artifactId>
+            <version>.</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/lab1fxbackend.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src</directory>
+            </resource>
+            <resource>
+                <directory>lib</directory>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
