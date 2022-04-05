@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.ait.dat215.lab2.RecipeDatabase;
 
@@ -17,8 +18,12 @@ public class RecipeSearchController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        mainIngredient.getItems().addAll(RecipeRetriever.MainIngredient.getAllKeys());
+        mainIngredient.getItems().addAll(RecipeRetriever.MainIngredient.getAllKeys());
     }
+
+    @FXML ComboBox mainIngredient;
+    @FXML ComboBox kitchen;
 
     private void updateRecipeList(){
         recipeListFlowPane.getChildren().clear();

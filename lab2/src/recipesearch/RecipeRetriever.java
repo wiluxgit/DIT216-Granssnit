@@ -58,8 +58,8 @@ public class RecipeRetriever {
         public String key() {
             return this.dbKey;
         }
-        public String[] getAllKeys(){
-            return (String[]) Arrays.stream(this.getDeclaringClass().getEnumConstants()).map(x -> x.dbKey).toArray();
+        public static String[] getAllKeys(){
+            return (String[]) Arrays.stream(Cuisine.class.getEnumConstants()).map(x -> x.dbKey).toArray();
         }
     }
     enum MainIngredient {
@@ -75,8 +75,8 @@ public class RecipeRetriever {
         public String key() {
             return this.dbKey;
         }
-        public String[] getAllKeys(){
-            return (String[]) Arrays.stream(this.getDeclaringClass().getEnumConstants()).map(x -> x.dbKey).toArray();
+        public static String[] getAllKeys(){
+            return (String[]) Arrays.stream(MainIngredient.class.getEnumConstants()).map(x -> x.dbKey).toArray();
         }
     }
     enum Difficulty {
@@ -91,8 +91,8 @@ public class RecipeRetriever {
         public String key() {
             return this.dbKey;
         }
-        public String[] getAllKeys(){
-            return (String[]) Arrays.stream(this.getDeclaringClass().getEnumConstants()).map(x -> x.dbKey).toArray();
+        public static String[] getAllKeys(){
+            return (String[]) Arrays.stream(Difficulty.class.getEnumConstants()).map(x -> x.dbKey).toArray();
         }
     }
 }
