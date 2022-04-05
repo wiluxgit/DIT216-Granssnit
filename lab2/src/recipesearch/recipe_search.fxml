@@ -21,21 +21,21 @@
               <items>
                 <AnchorPane fx:id="searchPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <ComboBox fx:id="mainIngredient" layoutX="138.0" layoutY="191.0" prefHeight="26.0" prefWidth="125.0" />
-                        <ComboBox fx:id="kitchen" layoutX="138.0" layoutY="229.0" prefHeight="26.0" prefWidth="125.0" />
-                        <Label fx:id="headIngredientLabel" layoutX="34.0" layoutY="195.0" text="Huvudingrediens:" />
-                        <Label fx:id="kitchenLabel" layoutX="106.0" layoutY="233.0" text="Kök:" />
-                        <RadioButton fx:id="difficultyAll" layoutX="137.0" layoutY="282.0" mnemonicParsing="false" text="Alla" />
-                        <RadioButton fx:id="difficultyEasy" layoutX="137.0" layoutY="305.0" mnemonicParsing="false" text="Lätt" />
-                        <RadioButton fx:id="difficultyMedium" layoutX="137.0" layoutY="329.0" mnemonicParsing="false" text="Mellan" />
-                        <RadioButton fx:id="difficultyHard" layoutX="137.0" layoutY="353.0" mnemonicParsing="false" text="Svår" />
-                        <Spinner fx:id="maxPrice" layoutX="134.0" layoutY="383.0" prefHeight="16.0" prefWidth="102.0" />
-                        <Slider fx:id="maxTime" layoutX="135.0" layoutY="433.0" prefHeight="16.0" prefWidth="131.0" />
-                        <Label fx:id="difficultyLabel" layoutX="44.0" layoutY="282.0" text="Svårighetsgrad:" />
-                        <Label fx:id="maxPriceLabel" layoutX="81.0" layoutY="388.0" text="Maxpris:" />
-                        <Label fx:id="krLabel" layoutX="243.0" layoutY="387.0" text="kr" />
-                        <Label fx:id="maxTimeLabel" layoutX="81.0" layoutY="433.0" text="Maxtid:" />
-                        <Label fx:id="chosenTimeLabel" layoutX="200.0" layoutY="457.0" text="20 minuter" />
+                        <ComboBox fx:id="mainIngredient" layoutX="121.0" layoutY="192.0" prefHeight="26.0" prefWidth="136.0" AnchorPane.rightAnchor="19.0" />
+                        <ComboBox fx:id="kitchen" layoutX="122.0" layoutY="227.0" prefHeight="26.0" prefWidth="136.0" AnchorPane.rightAnchor="19.0" />
+                        <Label fx:id="headIngredientLabel" layoutX="14.0" layoutY="196.0" text="Huvudingrediens:" AnchorPane.rightAnchor="160.0" />
+                        <Label fx:id="kitchenLabel" layoutX="85.0" layoutY="233.0" text="Kök:" AnchorPane.rightAnchor="160.0" />
+                        <RadioButton fx:id="difficultyAll" layoutX="137.0" layoutY="282.0" mnemonicParsing="false" text="Alla" AnchorPane.rightAnchor="110.0" />
+                        <RadioButton fx:id="difficultyEasy" layoutX="121.0" layoutY="305.0" mnemonicParsing="false" text="Lätt" AnchorPane.leftAnchor="123.0" />
+                        <RadioButton fx:id="difficultyMedium" layoutX="123.0" layoutY="329.0" mnemonicParsing="false" text="Mellan" />
+                        <RadioButton fx:id="difficultyHard" layoutX="123.0" layoutY="353.0" mnemonicParsing="false" text="Svår" />
+                        <Spinner fx:id="maxPrice" layoutX="116.0" layoutY="384.0" prefHeight="16.0" prefWidth="102.0" AnchorPane.rightAnchor="55.0" />
+                        <Slider fx:id="maxTime" layoutX="118.0" layoutY="434.0" majorTickUnit="20.0" max="120.0" minorTickCount="1" prefHeight="38.0" prefWidth="143.0" showTickLabels="true" showTickMarks="true" AnchorPane.rightAnchor="16.0" />
+                        <Label fx:id="difficultyLabel" layoutX="44.0" layoutY="282.0" text="Svårighetsgrad:" AnchorPane.rightAnchor="160.0" />
+                        <Label fx:id="maxPriceLabel" layoutX="81.0" layoutY="388.0" text="Maxpris:" AnchorPane.rightAnchor="160.0" />
+                        <Label fx:id="krLabel" layoutX="243.0" layoutY="387.0" text="kr" AnchorPane.rightAnchor="38.0" />
+                        <Label fx:id="maxTimeLabel" layoutX="86.0" layoutY="432.0" text="Maxtid:" AnchorPane.rightAnchor="160.0" />
+                        <Label fx:id="chosenTimeLabel" layoutX="191.0" layoutY="468.0" text="20 minuter" />
                         <Label layoutX="19.0" layoutY="97.0" prefHeight="57.0" prefWidth="237.0" text="Hitta ett recept som passar genom att ändra i inställningarna nedanför" textAlignment="CENTER" wrapText="true" />
                      </children>
                   </AnchorPane>
