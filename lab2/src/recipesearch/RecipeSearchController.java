@@ -22,7 +22,11 @@ public class RecipeSearchController implements Initializable {
 
     private void updateRecipeList(){
         recipeListFlowPane.getChildren().clear();
-        recipeListFlowPane.getChildren().add();
+        RecipeRetriever recipeRetriver = new RecipeRetriever();
+        for (var dbRecipe:recipeRetriver.query()) {
+            RecipeListItem recipeItem = new RecipeListItem(dbRecipe, this);
+            recipeListFlowPane.getChildren().add(recipeItem);
+        }
     }
 
 }
