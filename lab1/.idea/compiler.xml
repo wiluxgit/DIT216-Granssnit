@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="AddressBook" />
+        <module name="DIT216-ux-Addressbook" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="AddressBook" target="17" />
+      <module name="DIT216-ux-Addressbook" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
