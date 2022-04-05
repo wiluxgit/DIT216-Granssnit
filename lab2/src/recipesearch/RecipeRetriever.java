@@ -1,11 +1,13 @@
 package recipesearch;
 
+import javafx.scene.control.ToggleGroup;
 import se.chalmers.ait.dat215.lab2.Recipe;
 import se.chalmers.ait.dat215.lab2.RecipeDatabase;
 import se.chalmers.ait.dat215.lab2.SearchFilter;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class RecipeRetriever {
     private String cuisine;
@@ -14,13 +16,18 @@ public class RecipeRetriever {
     private Integer maxPrice;
     private Integer maxTime;
 
-    public List<Recipe> query(int percentMatch){
-        List<Recipe> allRecipes = query();
+    public List<Recipe> query(RecipeDatabase db, int percentMatch){
+        List<Recipe> allRecipes = query(db);
         return allRecipes.stream().takeWhile(x -> x.getMatch() >= percentMatch).toList();
     }
-    public List<Recipe> query(){
-        RecipeDatabase db = RecipeDatabase.getSharedInstance();
-        return db.search(new SearchFilter(difficulty, maxTime, cuisine, maxPrice, mainIngredient));
+    public List<Recipe> query(RecipeDatabase db){
+        return db.search(new SearchFilter(
+                difficulty,
+                Optional.ofNullable(maxTime).orElse(0),
+                cuisine,
+                Optional.ofNullable(maxPrice).orElse(0),
+                mainIngredient)
+        );
     }
 
     public RecipeRetriever() {
@@ -58,15 +65,15 @@ public class RecipeRetriever {
         public String key() {
             return this.dbKey;
         }
-        public static String[] getAllKeys(){
-            return (String[]) Arrays.stream(Cuisine.class.getEnumConstants()).map(x -> x.dbKey).toArray();
+        public static List<String> getAllKeys(){
+            return (Arrays.stream(Cuisine.class.getEnumConstants()).map(Cuisine::key)).toList();
         }
     }
     enum MainIngredient {
         Meat("Kött"),
         Fish("Fisk"),
         Chicken("Kyckling"),
-        Vegetarian("Asien");
+        Vegetarian("Vegetarian");
 
         private final String dbKey;
         private MainIngredient(String key){
@@ -75,8 +82,8 @@ public class RecipeRetriever {
         public String key() {
             return this.dbKey;
         }
-        public static String[] getAllKeys(){
-            return (String[]) Arrays.stream(MainIngredient.class.getEnumConstants()).map(x -> x.dbKey).toArray();
+        public static List<String> getAllKeys(){
+            return (Arrays.stream(MainIngredient.class.getEnumConstants()).map(MainIngredient::key)).toList();
         }
     }
     enum Difficulty {
@@ -91,8 +98,8 @@ public class RecipeRetriever {
         public String key() {
             return this.dbKey;
         }
-        public static String[] getAllKeys(){
-            return (String[]) Arrays.stream(Difficulty.class.getEnumConstants()).map(x -> x.dbKey).toArray();
+        public static List<String>  getAllKeys(){
+            return (Arrays.stream(Difficulty.class.getEnumConstants()).map(Difficulty::key)).toList();
         }
     }
 }
