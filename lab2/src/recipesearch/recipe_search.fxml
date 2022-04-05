@@ -27,7 +27,7 @@
                      </font>
                   </Label>
                   <ImageView fx:id="RecipeImageBig" fitHeight="276.0" fitWidth="276.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button fx:id="recipeDetailButtonClose" layoutX="680.0" layoutY="443.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="Stäng" />
+                  <Button fx:id="recipeDetailButtonClose" layoutX="680.0" layoutY="443.0" mnemonicParsing="false" onAction="#closeRecipeView" prefHeight="26.0" prefWidth="78.0" text="Stäng" />
                </children>
             </AnchorPane>
             <SplitPane dividerPositions="0.35" prefHeight="160.0" prefWidth="200.0">
