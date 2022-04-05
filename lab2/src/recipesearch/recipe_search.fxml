@@ -21,12 +21,12 @@
          <children>
             <AnchorPane fx:id="recipeDetailPane" prefHeight="503.0" prefWidth="800.0">
                <children>
-                  <Label fx:id="recipeNameLabel" layoutX="305.0" layoutY="7.0" prefHeight="51.0" prefWidth="465.0" text="Receptnamn">
+                  <Label fx:id="recipeDetailLabel" layoutX="305.0" layoutY="7.0" prefHeight="51.0" prefWidth="465.0" text="Receptnamn">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="RecipeImageBig" fitHeight="276.0" fitWidth="276.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="recipeDetailImageView" fitHeight="276.0" fitWidth="276.0" pickOnBounds="true" preserveRatio="true" />
                   <Button fx:id="recipeDetailButtonClose" layoutX="680.0" layoutY="443.0" mnemonicParsing="false" onAction="#closeRecipeView" prefHeight="26.0" prefWidth="78.0" text="Stäng" />
                </children>
             </AnchorPane>
