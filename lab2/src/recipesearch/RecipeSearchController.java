@@ -2,6 +2,8 @@
 package recipesearch;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
@@ -11,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.ait.dat215.lab2.Recipe;
 import se.chalmers.ait.dat215.lab2.RecipeDatabase;
@@ -28,13 +31,14 @@ public class RecipeSearchController implements Initializable {
     @FXML Slider maxTime;
     @FXML Label chosenTimeLabel;
 
-    @FXML Label recipeDetailPane;
-    @FXML Label searchPane;
+    @FXML AnchorPane recipeDetailPane;
+    @FXML SplitPane searchPane;
 
     @FXML Label recipeDetailLabel;
     @FXML ImageView recipeDetailImageView;
     @FXML Button recipeDetailButtonClose;
 
+    private Map<String, RecipeListItem> recipeListItemMap = new HashMap<String, RecipeListItem>();
     RecipeDatabase db = RecipeDatabase.getSharedInstance();
     RecipeRetriever recipeRetriever;
     public static int globMaxPrice = 150;
@@ -57,6 +61,11 @@ public class RecipeSearchController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         recipeRetriever = new RecipeRetriever();
+
+        for (Recipe recipe:recipeRetriever.query(db)) {
+            RecipeListItem recipeListItem = new RecipeListItem(recipe, this);
+            recipeListItemMap.put(recipe.getName(), recipeListItem);
+        }
 
         mainIngredient.getItems().addAll(RecipeRetriever.MainIngredient.getAllKeys());
         mainIngredient.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
@@ -111,6 +120,7 @@ public class RecipeSearchController implements Initializable {
         maxTime.valueProperty().addListener((observable, oldValue, newValue) -> {
             int roundTime = (newValue.intValue()/10)*10;
             chosenTimeLabel.setText(roundTime+" Minuter");
+            maxTime.setValue(roundTime);
             if(newValue != null && !newValue.equals(oldValue) /*&& maxTime.isValueChanging() == false*/) {
                 recipeRetriever.setMaxTime(roundTime);
                 updateRecipeList();
@@ -121,8 +131,8 @@ public class RecipeSearchController implements Initializable {
 
     private void updateRecipeList(){
         recipeListFlowPane.getChildren().clear();
-        for (var dbRecipe:recipeRetriever.query(db)) {
-            RecipeListItem recipeItem = new RecipeListItem(dbRecipe, this);
+        for (Recipe recipe:recipeRetriever.query(db)) {
+            RecipeListItem recipeItem = recipeListItemMap.get(recipe.getName());
             recipeListFlowPane.getChildren().add(recipeItem);
         }
     }

@@ -16,10 +16,10 @@ public class RecipeRetriever {
     private Integer maxPrice;
     private Integer maxTime;
 
-    public List<Recipe> query(RecipeDatabase db, int percentMatch){
+    /*public List<Recipe> query(RecipeDatabase db, int percentMatch){
         List<Recipe> allRecipes = query(db);
         return allRecipes.stream().takeWhile(x -> x.getMatch() >= percentMatch).toList();
-    }
+    }*/
     public List<Recipe> query(RecipeDatabase db){
         return db.search(new SearchFilter(
                 difficulty,
