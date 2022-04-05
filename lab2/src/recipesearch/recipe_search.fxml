@@ -19,7 +19,7 @@
    <children>
       <StackPane prefHeight="501.0" prefWidth="802.0">
          <children>
-            <AnchorPane prefHeight="503.0" prefWidth="800.0">
+            <AnchorPane fx:id="recipeDetailPane" prefHeight="503.0" prefWidth="800.0">
                <children>
                   <Label fx:id="recipeNameLabel" layoutX="305.0" layoutY="7.0" prefHeight="51.0" prefWidth="465.0" text="Receptnamn">
                      <font>
@@ -52,7 +52,7 @@
                         <Label layoutX="19.0" layoutY="97.0" prefHeight="57.0" prefWidth="237.0" text="Hitta ett recept som passar genom att ändra i inställningarna nedanför" textAlignment="CENTER" wrapText="true" />
                      </children>
                   </AnchorPane>
-                <AnchorPane fx:id="recipeDetailPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
                         <ScrollPane fx:id="scrollPane" layoutY="-3.0" prefHeight="504.0" prefWidth="516.0">
                            <content>
