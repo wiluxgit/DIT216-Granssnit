@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -43,7 +44,6 @@ public class RecipeSearchController implements Initializable {
     public void closeRecipeView(){
         searchPane.toFront();
     }
-    @FXML
     public void openRecipeView(Recipe recipe){
         populateRecipeDetailView(recipe);
         recipeDetailPane.toFront();

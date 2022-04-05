@@ -1,5 +1,6 @@
 package recipesearch;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -16,6 +17,11 @@ public class RecipeListItem extends AnchorPane {
 
     private RecipeSearchController parentController;
     private Recipe recipe;
+
+    @FXML
+    protected void onClick(Event event){
+        parentController.openRecipeView(recipe);
+    }
 
     public RecipeListItem(Recipe recipe, RecipeSearchController recipeSearchController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recipe_listitem.fxml"));
