@@ -73,7 +73,7 @@ public class RecipeRetriever {
         Meat("Kött"),
         Fish("Fisk"),
         Chicken("Kyckling"),
-        Vegetarian("Vegetarian");
+        Vegetarian("Vegetarisk");
 
         private final String dbKey;
         private MainIngredient(String key){
