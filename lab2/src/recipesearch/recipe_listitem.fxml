@@ -7,6 +7,6 @@
 <fx:root fx:id="recipeListItem" onMouseClicked="#onClick" prefHeight="100.0" prefWidth="495.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="ingredientImage" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="ingredientLabel" layoutX="145.0" layoutY="23.0" text="Stekt ägg" />
+      <Label fx:id="ingredientLabel" layoutX="145.0" layoutY="23.0" text="Namnlöst recept" />
    </children>
 </fx:root>
