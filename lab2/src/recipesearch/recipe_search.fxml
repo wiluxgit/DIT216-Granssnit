@@ -47,7 +47,7 @@
                         <Label fx:id="maxPriceLabel" layoutX="81.0" layoutY="388.0" text="Maxpris:" AnchorPane.rightAnchor="160.0" />
                         <Label fx:id="krLabel" layoutX="243.0" layoutY="387.0" text="kr" AnchorPane.rightAnchor="38.0" />
                         <Label fx:id="maxTimeLabel" layoutX="86.0" layoutY="432.0" text="Maxtid:" AnchorPane.rightAnchor="160.0" />
-                        <Label fx:id="chosenTimeLabel" layoutX="191.0" layoutY="468.0" text="20 minuter" />
+                        <Label fx:id="chosenTimeLabel" layoutX="191.0" layoutY="468.0" text="0 minuter" />
                         <Label layoutX="19.0" layoutY="97.0" prefHeight="57.0" prefWidth="237.0" text="Hitta ett recept som passar genom att ändra i inställningarna nedanför" textAlignment="CENTER" wrapText="true" />
                      </children>
                   </AnchorPane>
