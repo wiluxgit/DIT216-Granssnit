@@ -6,22 +6,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="recipeListItem" onMouseClicked="#onClick" prefHeight="100.0" prefWidth="495.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="recipeListItem" onMouseClicked="#onClick" prefHeight="100.0" prefWidth="495.0" stylesheets="@recipe_search.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="recipeImage" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="370.0" AnchorPane.topAnchor="0.0" />
-      <Label fx:id="recipeNameLabel" layoutX="134.0" layoutY="7.0" text="Namnlöst recept" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="7.0">
+      <Label fx:id="recipeNameLabel" layoutX="134.0" layoutY="7.0" styleClass="text-big" text="Namnlöst recept" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="7.0">
          <font>
             <Font size="20.0" />
          </font></Label>
-      <Label fx:id="recipeDescriptionLabel" layoutX="145.0" layoutY="54.0" prefHeight="65.0" prefWidth="359.0" text="Här finns kort information om receptet" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="54.0" />
-      <Label fx:id="recipeTimeLabel" layoutX="231.0" layoutY="34.0" prefHeight="14.0" prefWidth="31.0" text="Tid" AnchorPane.leftAnchor="215.0" AnchorPane.topAnchor="34.0">
+      <Label fx:id="recipeDescriptionLabel" layoutX="145.0" layoutY="54.0" prefHeight="65.0" prefWidth="359.0" styleClass="text-normal" text="Här finns kort information om receptet" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="54.0" />
+      <Label fx:id="recipeTimeLabel" layoutX="231.0" layoutY="34.0" prefHeight="14.0" prefWidth="68.0" styleClass="text-small" text="Tid" AnchorPane.leftAnchor="215.0" AnchorPane.topAnchor="34.0">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <ImageView fx:id="recipeMainIngredientImage" fitHeight="15.0" fitWidth="31.0" layoutX="140.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="34.0" />
-      <ImageView fx:id="recipeDifficultyImage" fitHeight="15.0" fitWidth="31.0" layoutX="187.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="34.0" />
-      <Label fx:id="recipePriceLabel" layoutX="274.0" layoutY="35.0" prefHeight="14.0" prefWidth="31.0" text="Pris" AnchorPane.leftAnchor="275.0" AnchorPane.topAnchor="34.0">
+      <ImageView fx:id="recipeMainIngredientImage" fitHeight="21.0" fitWidth="31.0" layoutX="140.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="34.0" />
+      <ImageView fx:id="recipeDifficultyImage" fitHeight="21.0" fitWidth="46.0" layoutX="187.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="34.0" />
+      <Label fx:id="recipePriceLabel" layoutX="285.0" layoutY="34.0" prefHeight="14.0" prefWidth="31.0" styleClass="text-small" text="Pris" AnchorPane.leftAnchor="285.0" AnchorPane.topAnchor="34.0">
          <font>
             <Font size="10.0" />
          </font>

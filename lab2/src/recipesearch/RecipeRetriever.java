@@ -1,12 +1,9 @@
 package recipesearch;
 
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.image.Image;
 import se.chalmers.ait.dat215.lab2.Recipe;
 import se.chalmers.ait.dat215.lab2.RecipeDatabase;
 import se.chalmers.ait.dat215.lab2.SearchFilter;
 
-import java.security.Key;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -82,7 +79,7 @@ public class RecipeRetriever {
         }
         public static String getPathByKey(String key){
             var match = (Arrays.stream(Cuisine.class.getEnumConstants())
-                    .filter(x -> veryEquals(x.key(),key)).map(Cuisine::path)).toList();
+                    .filter(x -> ignoreNonAsciiEquals(x.key(),key)).map(Cuisine::path)).toList();
             return match.size() == 0 ? null : match.get(0);
         }
     }
@@ -110,15 +107,9 @@ public class RecipeRetriever {
         }
         public static String getPathByKey(String key){
             var match = (Arrays.stream(MainIngredient.class.getEnumConstants())
-                    .filter(x -> veryEquals(x.key(),key)).map(MainIngredient::path)).toList();
+                    .filter(x -> ignoreNonAsciiEquals(x.key(),key)).map(MainIngredient::path)).toList();
             return match.size() == 0 ? null : match.get(0);
         }
-    }
-    public static boolean veryEquals(String a, String b){
-        String sa = a.replaceAll("[^\\x00-\\x7F]", "");
-        String sb = b.replaceAll("[^\\x00-\\x7F]", "");
-        //System.out.println(">>>>>>>>>> " + sa + " ?= " + sb);
-        return sa.equals(sb);
     }
     enum Difficulty implements Keyable {
         Easy("Lätt","RecipeSearch/resources/icon_difficulty_easy.png"),
@@ -142,8 +133,14 @@ public class RecipeRetriever {
         }
         public static String getPathByKey(String key){
             var match = (Arrays.stream(Difficulty.class.getEnumConstants())
-                    .filter(x -> veryEquals(x.key(),key)).map(Difficulty::path)).toList();
+                    .filter(x -> ignoreNonAsciiEquals(x.key(),key)).map(Difficulty::path)).toList();
             return match.size() == 0 ? null : match.get(0);
         }
+    }
+    public static boolean ignoreNonAsciiEquals(String a, String b){
+        String sa = a.replaceAll("[^\\x00-\\x7F]", "");
+        String sb = b.replaceAll("[^\\x00-\\x7F]", "");
+        //System.out.println(">>>>>>>>>> " + sa + " ?= " + sb);
+        return sa.equals(sb);
     }
 }
