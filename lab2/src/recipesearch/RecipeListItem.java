@@ -4,6 +4,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
@@ -12,8 +13,16 @@ import se.chalmers.ait.dat215.lab2.Recipe;
 import java.io.IOException;
 
 public class RecipeListItem extends AnchorPane {
-    @FXML Label ingredientLabel;
-    @FXML ImageView ingredientImage;
+    @FXML Label recipeNameLabel;
+    @FXML ImageView recipeImage;
+
+    @FXML Label recipeTimeLabel;
+    @FXML Label recipePriceLabel;
+    @FXML Label recipeDescriptionLabel;
+
+    @FXML ImageView recipeDifficultyImage;
+    @FXML ImageView recipeCuisineImage;
+    @FXML ImageView recipeMainIngredientImage;
 
     private RecipeSearchController parentController;
     private Recipe recipe;
@@ -33,8 +42,18 @@ public class RecipeListItem extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        ingredientLabel.setText(recipe.getName());
-        ingredientImage.setImage(recipe.getFXImage());
+        recipeNameLabel.setText(recipe.getName());
+        recipeImage.setImage(recipe.getFXImage());
+        recipeTimeLabel.setText(recipe.getTime() + " minutes");
+        recipePriceLabel.setText(recipe.getPrice() + " kr");
+        recipeDescriptionLabel.setText(recipe.getDescription());
+
+        var difficultyPath = RecipeRetriever.Difficulty.getPathByKey(recipe.getDifficulty());
+        recipeDifficultyImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(difficultyPath)));
+        var cuisinePath = RecipeRetriever.Cuisine.getPathByKey(recipe.getCuisine());
+        recipeCuisineImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(cuisinePath)));
+        var mainIngredientPath = RecipeRetriever.MainIngredient.getPathByKey(recipe.getMainIngredient());
+        recipeMainIngredientImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(mainIngredientPath)));
 
         this.recipe = recipe;
         this.parentController = recipeSearchController;

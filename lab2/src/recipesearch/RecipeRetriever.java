@@ -1,10 +1,12 @@
 package recipesearch;
 
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
 import se.chalmers.ait.dat215.lab2.Recipe;
 import se.chalmers.ait.dat215.lab2.RecipeDatabase;
 import se.chalmers.ait.dat215.lab2.SearchFilter;
 
+import java.security.Key;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -50,7 +52,11 @@ public class RecipeRetriever {
     public String getMainIngredient() {return this.mainIngredient ;}
     */
 
-    enum Cuisine {
+    interface Keyable {
+        public String key();
+    }
+
+    enum Cuisine implements Keyable {
         Sweden("Sverige","RecipeSearch/resources/icon_flag_sweden.png"),
         Greece("Grekland","RecipeSearch/resources/icon_flag_greece.png"),
         India("Indien","RecipeSearch/resources/icon_flag_india.png"),
@@ -80,7 +86,7 @@ public class RecipeRetriever {
             return match.get(0);
         }
     }
-    enum MainIngredient {
+    enum MainIngredient implements Keyable {
         Meat("Kött","RecipeSearch/resources/icon_main_meat.png"),
         Fish("Fisk", "RecipeSearch/resources/icon_main_fish.png"),
         Chicken("Kyckling", "RecipeSearch/resources/icon_main_chicken.png"),
@@ -108,20 +114,30 @@ public class RecipeRetriever {
             return match.get(0);
         }
     }
-    enum Difficulty {
-        East("Lätt"),
-        Medium("Mellan"),
-        Hard("Svår");
+    enum Difficulty implements Keyable {
+        Easy("Lätt","RecipeSearch/resources/icon_difficulty_easy.png"),
+        Medium("Mellan","RecipeSearch/resources/icon_difficulty_medium.png"),
+        Hard("Svår","RecipeSearch/resources/icon_difficulty_hard.png");
 
         private final String dbKey;
-        private Difficulty(String key){
+        private final String iconPath;
+        private Difficulty(String key, String iconPath){
             this.dbKey = key;
+            this.iconPath = iconPath;
         }
         public String key() {
             return this.dbKey;
         }
-        public static List<String>  getAllKeys(){
+        public String path() {
+            return this.iconPath;
+        }
+        public static List<String> getAllKeys(){
             return (Arrays.stream(Difficulty.class.getEnumConstants()).map(Difficulty::key)).toList();
+        }
+        public static String getPathByKey(String key){
+            var match = (Arrays.stream(Difficulty.class.getEnumConstants())
+                    .filter(x -> x.key().equals(key)).map(Difficulty::path)).toList();
+            return match.get(0);
         }
     }
 }
