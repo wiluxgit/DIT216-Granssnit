@@ -2,3 +2,11 @@
      -fx-font-size: 12px;
      -fx-font-family: "Lucida Sans";
 }
+.text-small{
+     -fx-font-size: 10px;
+     -fx-font-family: "Lucida Sans";
+}
+.text-big{
+     -fx-font-size: 20px;
+     -fx-font-family: "Lucida Sans";
+}
