@@ -69,6 +69,37 @@ public class RecipeSearchController implements Initializable {
             recipeListItemMap.put(recipe.getName(), recipeListItem);
         }
 
+        initMainIngredient();
+        initKitchen();
+        initDifficultiToggle();
+        initMaxPrice();
+        initMaxTime();
+
+        populateMainIngredientComboBox();
+        populateCuisineComboBox();
+    }
+
+    private void updateRecipeList(){
+        recipeListFlowPane.getChildren().clear();
+        for (Recipe recipe:recipeRetriever.query(db)) {
+            RecipeListItem recipeItem = recipeListItemMap.get(recipe.getName());
+            recipeListFlowPane.getChildren().add(recipeItem);
+        }
+    }
+
+    private void initMaxTime(){
+        maxTime.valueProperty().addListener((observable, oldValue, newValue) -> {
+            int roundTime = (newValue.intValue()/10)*10;
+            chosenTimeLabel.setText(roundTime+" Minuter");
+            maxTime.setValue(roundTime);
+            if(newValue != null && !newValue.equals(oldValue) /*&& maxTime.isValueChanging() == false*/) {
+                recipeRetriever.setMaxTime(roundTime);
+                updateRecipeList();
+            }
+        });
+    }
+
+    public void initMainIngredient(){
         mainIngredient.getItems().addAll(RecipeRetriever.MainIngredient.getAllKeys());
         mainIngredient.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -77,6 +108,9 @@ public class RecipeSearchController implements Initializable {
                 updateRecipeList();
             }
         });
+    }
+
+    private void initKitchen(){
         kitchen.getItems().addAll(RecipeRetriever.Cuisine.getAllKeys());
         kitchen.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -85,7 +119,9 @@ public class RecipeSearchController implements Initializable {
                 updateRecipeList();
             }
         });
+    }
 
+    private void initDifficultiToggle(){
         ToggleGroup difficultyToggleGroup = new ToggleGroup();
         difficultyAll.setToggleGroup(difficultyToggleGroup);
         difficultyEasy.setToggleGroup(difficultyToggleGroup);
@@ -99,7 +135,9 @@ public class RecipeSearchController implements Initializable {
                 updateRecipeList();
             }
         });
+    }
 
+    private void initMaxPrice(){
         SpinnerValueFactory<Integer> spinnerValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(
                 0, globMaxPrice, globMaxPrice, 10
         );
@@ -118,26 +156,6 @@ public class RecipeSearchController implements Initializable {
                 updateRecipeList();
             }
         });
-
-        maxTime.valueProperty().addListener((observable, oldValue, newValue) -> {
-            int roundTime = (newValue.intValue()/10)*10;
-            chosenTimeLabel.setText(roundTime+" Minuter");
-            maxTime.setValue(roundTime);
-            if(newValue != null && !newValue.equals(oldValue) /*&& maxTime.isValueChanging() == false*/) {
-                recipeRetriever.setMaxTime(roundTime);
-                updateRecipeList();
-            }
-        });
-
-        populateMainIngredientComboBox();
-    }
-
-    private void updateRecipeList(){
-        recipeListFlowPane.getChildren().clear();
-        for (Recipe recipe:recipeRetriever.query(db)) {
-            RecipeListItem recipeItem = recipeListItemMap.get(recipe.getName());
-            recipeListFlowPane.getChildren().add(recipeItem);
-        }
     }
 
     private void populateMainIngredientComboBox(){
@@ -147,35 +165,15 @@ public class RecipeSearchController implements Initializable {
                     @Override
                     protected void updateItem(String item, boolean empty) {
                         super.updateItem(item, empty);
-
                         setText(item);
-
-                        if (item == null || empty) {
-                            setGraphic(null);
-                        }
+                        if (item == null || empty) setGraphic(null);
 
                         else {
                             Image icon = null;
                             String iconPath;
                             try {
-                                switch (item){
-                                    case "Kött":
-                                        iconPath = "RecipeSearch/resources/icon_main_meat.png";
-                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                                        break;
-                                    case "Fisk":
-                                        iconPath = "RecipeSearch/resources/icon_main_fish.png";
-                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                                        break;
-                                    case "Kyckling":
-                                        iconPath = "RecipeSearch/resources/icon_main_chicken.png";
-                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                                        break;
-                                    case "Vegetarisk":
-                                        iconPath = "RecipeSearch/resources/icon_main_veg.png";
-                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                                        break;
-                                }
+                                iconPath = RecipeRetriever.MainIngredient.getPathByKey(item);
+                                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
                             } catch(NullPointerException ex) {
                                 //This should never happen in this lab but could load a default image in case of a NullPointer
                             }
@@ -190,5 +188,36 @@ public class RecipeSearchController implements Initializable {
         };
         mainIngredient.setButtonCell(cellFactory.call(null));
         mainIngredient.setCellFactory(cellFactory);
+    }
+    private void populateCuisineComboBox(){
+        Callback<ListView<String>, ListCell<String>> cellFactory = new Callback<ListView<String>, ListCell<String>>() {
+            @Override public ListCell<String> call(ListView<String> p) {
+                return new ListCell<String>() {
+                    @Override
+                    protected void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        setText(item);
+                        if (item == null || empty) setGraphic(null);
+
+                        else {
+                            Image icon = null;
+                            String iconPath;
+                            try {
+                                iconPath = RecipeRetriever.Cuisine.getPathByKey(item);
+                                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                            } catch(NullPointerException ex) {
+                                //This should never happen in this lab but could load a default image in case of a NullPointer
+                            }
+                            ImageView iconImageView = new ImageView(icon);
+                            iconImageView.setFitHeight(12);
+                            iconImageView.setPreserveRatio(true);
+                            setGraphic(iconImageView);
+                        }
+                    }
+                };
+            }
+        };
+        kitchen.setButtonCell(cellFactory.call(null));
+        kitchen.setCellFactory(cellFactory);
     }
 }

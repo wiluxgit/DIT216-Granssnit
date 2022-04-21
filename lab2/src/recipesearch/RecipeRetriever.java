@@ -51,39 +51,61 @@ public class RecipeRetriever {
     */
 
     enum Cuisine {
-        Sweden("Sverige"),
-        Greece("Grekland"),
-        India("Indien"),
-        Asia("Asien"),
-        Africa("Afrika"),
-        France("Frankrike");
+        Sweden("Sverige","RecipeSearch/resources/icon_flag_sweden.png"),
+        Greece("Grekland","RecipeSearch/resources/icon_flag_greece.png"),
+        India("Indien","RecipeSearch/resources/icon_flag_india.png"),
+        Asia("Asien","RecipeSearch/resources/icon_flag_asia.png"),
+        Africa("Afrika","RecipeSearch/resources/icon_flag_africa.png"),
+        France("Frankrike","RecipeSearch/resources/icon_flag_france.png");
 
         private final String dbKey;
-        private Cuisine(String key){
+        private final String iconPath;
+        private Cuisine(String key, String iconPath){
             this.dbKey = key;
+            this.iconPath = iconPath;
         }
         public String key() {
             return this.dbKey;
         }
+        public String path() {
+            return this.iconPath;
+        }
         public static List<String> getAllKeys(){
-            return (Arrays.stream(Cuisine.class.getEnumConstants()).map(Cuisine::key)).toList();
+            return (Arrays.stream(Cuisine.class.getEnumConstants())
+                    .map(Cuisine::key)).toList();
+        }
+        public static String getPathByKey(String key){
+            var match = (Arrays.stream(Cuisine.class.getEnumConstants())
+                    .filter(x -> x.key().equals(key)).map(Cuisine::path)).toList();
+            return match.get(0);
         }
     }
     enum MainIngredient {
-        Meat("Kött"),
-        Fish("Fisk"),
-        Chicken("Kyckling"),
-        Vegetarian("Vegetarisk");
+        Meat("Kött","RecipeSearch/resources/icon_main_meat.png"),
+        Fish("Fisk", "RecipeSearch/resources/icon_main_fish.png"),
+        Chicken("Kyckling", "RecipeSearch/resources/icon_main_chicken.png"),
+        Vegetarian("Vegetarisk", "RecipeSearch/resources/icon_main_veg.png");
 
         private final String dbKey;
-        private MainIngredient(String key){
+        private final String iconPath;
+        private MainIngredient(String key, String iconPath){
             this.dbKey = key;
+            this.iconPath = iconPath;
         }
         public String key() {
             return this.dbKey;
         }
+        public String path() {
+            return this.iconPath;
+        }
         public static List<String> getAllKeys(){
-            return (Arrays.stream(MainIngredient.class.getEnumConstants()).map(MainIngredient::key)).toList();
+            return (Arrays.stream(MainIngredient.class.getEnumConstants())
+                    .map(MainIngredient::key)).toList();
+        }
+        public static String getPathByKey(String key){
+            var match = (Arrays.stream(MainIngredient.class.getEnumConstants())
+                    .filter(x -> x.key().equals(key)).map(MainIngredient::path)).toList();
+            return match.get(0);
         }
     }
     enum Difficulty {
