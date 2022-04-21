@@ -47,7 +47,7 @@ public class RecipeListItem extends AnchorPane {
 
         recipeNameLabel.setText(recipe.getName());
         recipeImage.setImage(getSquareImage(recipe.getFXImage()));
-        recipeTimeLabel.setText(recipe.getTime() + " minutes");
+        recipeTimeLabel.setText(recipe.getTime() + " minuter");
         recipePriceLabel.setText(recipe.getPrice() + " kr");
         recipeDescriptionLabel.setText(recipe.getDescription());
 
