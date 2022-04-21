@@ -82,8 +82,8 @@ public class RecipeRetriever {
         }
         public static String getPathByKey(String key){
             var match = (Arrays.stream(Cuisine.class.getEnumConstants())
-                    .filter(x -> x.key().equals(key)).map(Cuisine::path)).toList();
-            return match.get(0);
+                    .filter(x -> veryEquals(x.key(),key)).map(Cuisine::path)).toList();
+            return match.size() == 0 ? null : match.get(0);
         }
     }
     enum MainIngredient implements Keyable {
@@ -110,9 +110,15 @@ public class RecipeRetriever {
         }
         public static String getPathByKey(String key){
             var match = (Arrays.stream(MainIngredient.class.getEnumConstants())
-                    .filter(x -> x.key().equals(key)).map(MainIngredient::path)).toList();
-            return match.get(0);
+                    .filter(x -> veryEquals(x.key(),key)).map(MainIngredient::path)).toList();
+            return match.size() == 0 ? null : match.get(0);
         }
+    }
+    public static boolean veryEquals(String a, String b){
+        String sa = a.replaceAll("[^\\x00-\\x7F]", "");
+        String sb = b.replaceAll("[^\\x00-\\x7F]", "");
+        //System.out.println(">>>>>>>>>> " + sa + " ?= " + sb);
+        return sa.equals(sb);
     }
     enum Difficulty implements Keyable {
         Easy("Lätt","RecipeSearch/resources/icon_difficulty_easy.png"),
@@ -136,8 +142,8 @@ public class RecipeRetriever {
         }
         public static String getPathByKey(String key){
             var match = (Arrays.stream(Difficulty.class.getEnumConstants())
-                    .filter(x -> x.key().equals(key)).map(Difficulty::path)).toList();
-            return match.get(0);
+                    .filter(x -> veryEquals(x.key(),key)).map(Difficulty::path)).toList();
+            return match.size() == 0 ? null : match.get(0);
         }
     }
 }

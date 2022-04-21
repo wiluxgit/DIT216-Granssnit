@@ -10,7 +10,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.ait.dat215.lab2.Recipe;
 
+import java.io.Console;
 import java.io.IOException;
+
+import static recipesearch.ImageUtils.getSquareImage;
 
 public class RecipeListItem extends AnchorPane {
     @FXML Label recipeNameLabel;
@@ -43,17 +46,23 @@ public class RecipeListItem extends AnchorPane {
         }
 
         recipeNameLabel.setText(recipe.getName());
-        recipeImage.setImage(recipe.getFXImage());
+        recipeImage.setImage(getSquareImage(recipe.getFXImage()));
         recipeTimeLabel.setText(recipe.getTime() + " minutes");
         recipePriceLabel.setText(recipe.getPrice() + " kr");
         recipeDescriptionLabel.setText(recipe.getDescription());
 
-        var difficultyPath = RecipeRetriever.Difficulty.getPathByKey(recipe.getDifficulty());
-        recipeDifficultyImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(difficultyPath)));
         var cuisinePath = RecipeRetriever.Cuisine.getPathByKey(recipe.getCuisine());
-        recipeCuisineImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(cuisinePath)));
-        var mainIngredientPath = RecipeRetriever.MainIngredient.getPathByKey(recipe.getMainIngredient());
-        recipeMainIngredientImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(mainIngredientPath)));
+        if (cuisinePath != null)
+            recipeCuisineImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(cuisinePath)));
+
+        var mainIngredientPath = RecipeRetriever.Cuisine.getPathByKey(recipe.getMainIngredient());
+        if (mainIngredientPath != null)
+            recipeMainIngredientImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(mainIngredientPath)));
+
+        var difficultyPath = RecipeRetriever.Difficulty.getPathByKey(recipe.getDifficulty());
+        if (difficultyPath != null) {
+            recipeDifficultyImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(difficultyPath)));
+        }
 
         this.recipe = recipe;
         this.parentController = recipeSearchController;
