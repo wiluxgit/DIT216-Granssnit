@@ -62,6 +62,7 @@ public class RecipeSearchController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         recipeRetriever = new RecipeRetriever();
 
         for (Recipe recipe:recipeRetriever.query(db)) {

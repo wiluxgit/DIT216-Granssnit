@@ -57,7 +57,10 @@ public class RecipeListItem extends AnchorPane {
 
         var mainIngredientPath = RecipeRetriever.Cuisine.getPathByKey(recipe.getMainIngredient());
         if (mainIngredientPath != null)
-            recipeMainIngredientImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(mainIngredientPath)));
+            System.out.println(mainIngredientPath);
+            try {
+                recipeMainIngredientImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(mainIngredientPath)));
+            } catch (Exception e){}
 
         var difficultyPath = RecipeRetriever.Difficulty.getPathByKey(recipe.getDifficulty());
         if (difficultyPath != null) {

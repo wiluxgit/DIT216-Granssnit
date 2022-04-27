@@ -1,12 +1,28 @@
 .text-normal{
-     /* -fx-font-size: 12px; */
-     -fx-font-family: "Lucida Sans";
+    /* -fx-font-size: 12px; */
+    -fx-font-family: "Lucida Sans";
 }
 .text-small{
-     -fx-font-size: 10px;
-     -fx-font-family: "Lucida Sans";
+    -fx-font-size: 10px;
+    -fx-font-family: "Lucida Sans";
 }
 .text-big{
-     -fx-font-size: 20px;
-     -fx-font-family: "Lucida Sans";
+    -fx-font-size: 20px;
+    -fx-font-family: "Lucida Sans";
+}
+.recipe-list-item{
+    -fx-border-width: 2px;
+    -fx-border-color: #999999;
+    -fx-border-radius: 2px;
+    -fx-background-radius: 1px;
+}
+.recipe-list-image{
+    -fx-border-width: 2px;
+    -fx-border-color: #999999;
+    -fx-border-radius: 2px;
+    -fx-background-radius: 1px;
+}
+.recipe-list-item:hover{
+    -fx-border-color: #999999;
+    -fx-background-color: #D0D0D0;
 }

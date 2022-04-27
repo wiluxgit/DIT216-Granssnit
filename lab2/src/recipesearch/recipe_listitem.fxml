@@ -7,39 +7,45 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="recipeListItem" onMouseClicked="#onClick" prefHeight="100.0" prefWidth="495.0" stylesheets="@recipe_search.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="recipeListItem" maxWidth="56000.0" minWidth="-Infinity" onMouseClicked="#onClick" prefHeight="100.0" styleClass="recipe-list-item" stylesheets="@recipe_search.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="recipeImage" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="370.0" AnchorPane.topAnchor="0.0">
-         <image>
-            <Image url="@../../recipes/kokande-vatten.jpg" />
-         </image></ImageView>
-      <Label fx:id="recipeNameLabel" layoutX="134.0" layoutY="7.0" styleClass="text-big" text="Namnlöst recept" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="7.0">
+      <Label fx:id="recipeNameLabel" layoutX="144.0" layoutY="15.0" prefHeight="26.0" prefWidth="383.0" styleClass="text-big" text="Namnlöst recept" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="13.0">
          <font>
             <Font size="20.0" />
          </font></Label>
-      <Label fx:id="recipeDescriptionLabel" layoutX="145.0" layoutY="54.0" prefHeight="65.0" prefWidth="359.0" styleClass="text-normal" text="Här finns kort information om receptet" wrapText="true" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="54.0" />
-      <Label fx:id="recipeTimeLabel" layoutX="231.0" layoutY="33.0" prefHeight="14.0" prefWidth="68.0" styleClass="text-small" text="Tid" AnchorPane.leftAnchor="231.0" AnchorPane.topAnchor="34.0">
+      <Label fx:id="recipeDescriptionLabel" layoutX="144.0" layoutY="62.0" prefHeight="66.0" prefWidth="407.0" styleClass="text-normal" text="Här finns kort information om receptet" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="60.0" />
+      <Label fx:id="recipeTimeLabel" layoutX="219.0" layoutY="40.0" prefHeight="14.0" prefWidth="68.0" styleClass="text-small" text="Tid" AnchorPane.leftAnchor="219.0" AnchorPane.topAnchor="40.0">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <ImageView fx:id="recipeMainIngredientImage" fitHeight="21.0" fitWidth="46.0" layoutX="140.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="34.0">
+      <ImageView fx:id="recipeMainIngredientImage" fitHeight="21.0" fitWidth="46.0" layoutX="137.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="137.0" AnchorPane.topAnchor="40.0">
          <image>
             <Image url="@resources/icon_main_chicken.png" />
          </image></ImageView>
-      <ImageView fx:id="recipeDifficultyImage" fitHeight="21.0" fitWidth="46.0" layoutX="173.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="173.0" AnchorPane.topAnchor="34.0">
+      <ImageView fx:id="recipeDifficultyImage" fitHeight="21.0" fitWidth="46.0" layoutX="160.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="40.0">
          <image>
             <Image url="@resources/icon_difficulty_easy.png" />
          </image></ImageView>
-      <Label fx:id="recipePriceLabel" layoutX="304.0" layoutY="34.0" prefHeight="14.0" prefWidth="31.0" styleClass="text-small" text="Pris" AnchorPane.leftAnchor="304.0" AnchorPane.topAnchor="34.0">
+      <Label fx:id="recipePriceLabel" layoutX="303.0" layoutY="42.0" prefHeight="14.0" prefWidth="31.0" styleClass="text-small" text="Pris" AnchorPane.leftAnchor="303.0" AnchorPane.topAnchor="40.0">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <ImageView fx:id="recipeCuisineImage" fitHeight="30.0" fitWidth="37.0" layoutX="89.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="376.0" AnchorPane.topAnchor="95.0">
-         <image>
-            <Image url="@resources/icon_flag_sweden.png" />
-         </image></ImageView>
+      <AnchorPane layoutX="11.0" layoutY="11.0" maxHeight="125.0" maxWidth="125.0" minHeight="125.0" minWidth="125.0" styleClass="recipe-list-image" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="9.0" AnchorPane.topAnchor="9.0">
+         <children>
+            <ImageView fx:id="recipeImage" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" styleClass="recipe-list-image" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../../recipes/kokande-vatten.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="recipeCuisineImage" fitHeight="30.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
+               <image>
+                  <Image url="@resources/icon_flag_sweden.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
    <opaqueInsets>
       <Insets />

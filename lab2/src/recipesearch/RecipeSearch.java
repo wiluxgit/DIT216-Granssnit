@@ -28,6 +28,10 @@ public class RecipeSearch extends Application {
         stage.setScene(scene);
         stage.show();
 
+        stage.setMinWidth(872);
+        stage.setMinHeight(540);
+        stage.setWidth(872);
+        stage.setHeight(540);
     }
 
     /**
