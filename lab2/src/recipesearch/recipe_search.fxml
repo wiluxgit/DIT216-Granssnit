@@ -80,11 +80,11 @@
                   </AnchorPane>
               </items>
             </SplitPane>
-            <AnchorPane fx:id="recipeDetailPaneBackground" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: RGBA(0,0,0,0.5);">
+            <AnchorPane fx:id="recipeDetailPaneBackground" onMouseClicked="#closeRecipeView" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: RGBA(0,0,0,0.5);">
                <children>
-                  <AnchorPane fx:id="recipeDetailPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: -fx-background;;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                  <AnchorPane fx:id="recipeDetailPane" onMouseClicked="#mouseTrap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: -fx-background;;" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
                      <children>
-                        <ImageView fx:id="recipeCloseImageView" fitHeight="26.0" fitWidth="24.0" layoutX="733.0" onMouseClicked="#closeRecipeView" onMouseEntered="#closeButtonMouseEntered" onMouseExited="#closeButtonMouseExited" onMousePressed="#closeButtonMousePressed" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                        <ImageView fx:id="recipeDetailCloseImageView" fitHeight="26.0" fitWidth="24.0" layoutX="733.0" onMouseClicked="#closeRecipeView" onMouseEntered="#closeButtonMouseEntered" onMouseExited="#closeButtonMouseExited" onMousePressed="#closeButtonMousePressed" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <image>
                               <Image url="@resources/icon_close.png" />
                            </image>
@@ -113,7 +113,7 @@
                               <String fx:value="text-big" />
                            </styleClass>
                         </Label>
-                        <Label fx:id="recipeDetailInstructionsLabel" alignment="TOP_LEFT" layoutX="330.0" layoutY="219.0" prefHeight="301.0" prefWidth="451.0" styleClass="text-normal" text="Tillagning2" AnchorPane.leftAnchor="290.0" AnchorPane.topAnchor="170.0" />
+                        <Label fx:id="recipeDetailInstructionsLabel" alignment="TOP_LEFT" layoutX="330.0" layoutY="219.0" prefHeight="301.0" prefWidth="451.0" styleClass="text-normal" text="Tillagning2" wrapText="true" AnchorPane.leftAnchor="290.0" AnchorPane.topAnchor="170.0" />
                         <Label fx:id="recipeDetailTimeLabel" layoutX="418.0" layoutY="39.0" prefHeight="24.0" prefWidth="110.0" text="Tid" AnchorPane.leftAnchor="418.0" AnchorPane.topAnchor="42.0">
                            <font>
                               <Font size="10.0" />
@@ -130,7 +130,7 @@
                            </font>
                         </Label>
                         <Label fx:id="recipeDetailPortionsLabel" alignment="TOP_LEFT" layoutX="8.0" layoutY="305.0" prefHeight="23.0" prefWidth="114.0" styleClass="text-normal" text="Portioner" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="300.0" />
-                        <Label fx:id="recipeDetailIngredientsLabel" alignment="TOP_LEFT" layoutX="18.0" layoutY="320.0" prefHeight="138.0" prefWidth="114.0" styleClass="text-normal" text="Ingredienser2" AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="320.0">
+                        <Label fx:id="recipeDetailIngredientsLabel" alignment="TOP_LEFT" layoutX="18.0" layoutY="320.0" prefHeight="138.0" prefWidth="114.0" styleClass="text-normal" text="Ingredienser2" wrapText="true" AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="320.0">
                            <font>
                               <Font size="10.0" />
                            </font>
@@ -140,7 +140,7 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="recipeDetailDescriptionLabel" alignment="TOP_LEFT" layoutX="282.0" layoutY="80.0" prefHeight="58.0" prefWidth="459.0" styleClass="text-normal" text="Lorem ipsum" AnchorPane.leftAnchor="290.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="80.0" />
+                        <Label fx:id="recipeDetailDescriptionLabel" alignment="TOP_LEFT" layoutX="282.0" layoutY="80.0" prefHeight="58.0" prefWidth="459.0" styleClass="text-normal" text="Lorem ipsum" wrapText="true" AnchorPane.leftAnchor="290.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="80.0" />
                         <ImageView fx:id="recipeDetailCuisineImage" fitHeight="59.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="200.0">
                            <image>
                               <Image url="@resources/icon_flag_france.png" />

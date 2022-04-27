@@ -57,6 +57,10 @@ public class RecipeSearchController implements Initializable {
     public static int globMaxTime = 120;
 
     @FXML
+    public void mouseTrap(Event event){
+        event.consume();
+    }
+    @FXML
     public void closeRecipeView(){
         searchPane.toFront();
     }
