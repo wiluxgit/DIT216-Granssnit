@@ -55,18 +55,18 @@ public class RecipeListItem extends AnchorPane {
         if (difficultyPath != null)
             try {
                 recipeDifficultyImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(difficultyPath)));
-            } catch (Exception e){}
+            } catch (Exception e){recipeDifficultyImage.setImage(null);}
         var mainIngredientPath = RecipeRetriever.MainIngredient.getPathByKey(recipe.getMainIngredient());
         if (mainIngredientPath != null) {
             try {
                 recipeMainIngredientImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(mainIngredientPath)));
-            } catch (Exception e){}
+            } catch (Exception e){recipeMainIngredientImage.setImage(null);}
         }
         var cuisinePath = RecipeRetriever.Cuisine.getPathByKey(recipe.getCuisine());
         if (mainIngredientPath != null) {
             try {
                 recipeCuisineImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(cuisinePath)));
-            } catch (Exception e){}
+            } catch (Exception e){recipeCuisineImage.setImage(null);}
         }
 
         this.recipe = recipe;

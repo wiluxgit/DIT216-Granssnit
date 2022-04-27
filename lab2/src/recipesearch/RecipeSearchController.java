@@ -78,18 +78,18 @@ public class RecipeSearchController implements Initializable {
         if (difficultyPath != null)
             try {
                 recipeDetailDifficultyImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(difficultyPath)));
-            } catch (Exception e){}
+            } catch (Exception e){recipeDetailDifficultyImage.setImage(null);}
         var mainIngredientPath = RecipeRetriever.MainIngredient.getPathByKey(recipe.getMainIngredient());
         if (mainIngredientPath != null) {
             try {
                 recipeDetailMainIngredientImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(mainIngredientPath)));
-            } catch (Exception e){}
+            } catch (Exception e){recipeDetailMainIngredientImage.setImage(null);}
         }
         var cuisinePath = RecipeRetriever.Cuisine.getPathByKey(recipe.getCuisine());
         if (mainIngredientPath != null) {
             try {
                 recipeDetailCuisineImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(cuisinePath)));
-            } catch (Exception e){}
+            } catch (Exception e){recipeDetailCuisineImage.setImage(null);}
         }
 
         StringBuilder sb = new StringBuilder();
@@ -162,6 +162,7 @@ public class RecipeSearchController implements Initializable {
     }
 
     public void initMainIngredient(){
+        mainIngredient.getItems().add("Visa Alla");
         mainIngredient.getItems().addAll(RecipeRetriever.MainIngredient.getAllKeys());
         mainIngredient.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -173,6 +174,7 @@ public class RecipeSearchController implements Initializable {
     }
 
     private void initKitchen(){
+        kitchen.getItems().add("Visa Alla");
         kitchen.getItems().addAll(RecipeRetriever.Cuisine.getAllKeys());
         kitchen.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override

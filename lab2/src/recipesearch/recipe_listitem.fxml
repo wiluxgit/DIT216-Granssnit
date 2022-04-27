@@ -14,7 +14,7 @@
             <Font size="20.0" />
          </font></Label>
       <Label fx:id="recipeDescriptionLabel" layoutX="144.0" layoutY="62.0" prefHeight="66.0" prefWidth="407.0" styleClass="text-normal" text="Här finns kort information om receptet" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="60.0" />
-      <Label fx:id="recipeTimeLabel" layoutX="219.0" layoutY="40.0" prefHeight="14.0" prefWidth="68.0" styleClass="text-small" text="Tid" AnchorPane.leftAnchor="219.0" AnchorPane.topAnchor="40.0">
+      <Label fx:id="recipeTimeLabel" layoutX="219.0" layoutY="40.0" prefHeight="14.0" prefWidth="68.0" styleClass="text-small" stylesheets="@recipe_search.css" text="Tid" AnchorPane.leftAnchor="219.0" AnchorPane.topAnchor="40.0">
          <font>
             <Font size="10.0" />
          </font>
