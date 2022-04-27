@@ -63,13 +63,13 @@
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label alignment="TOP_LEFT" layoutX="8.0" layoutY="278.0" prefHeight="31.0" prefWidth="150.0" styleClass="text-bold" text="Ingedienser" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="278.0">
+                        <Label alignment="TOP_LEFT" layoutX="8.0" layoutY="278.0" prefHeight="31.0" prefWidth="258.0" styleClass="text-bold" text="Ingedienser" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="278.0">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="recipeDetailPortionsLabel" alignment="TOP_LEFT" layoutX="8.0" layoutY="305.0" prefHeight="23.0" prefWidth="114.0" styleClass="text-normal" text="Portioner" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="300.0" />
-                        <Label fx:id="recipeDetailIngredientsLabel" alignment="TOP_LEFT" layoutX="18.0" layoutY="320.0" prefHeight="138.0" prefWidth="114.0" styleClass="text-normal" text="Ingredienser2" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="320.0">
+                        <Label fx:id="recipeDetailPortionsLabel" alignment="TOP_LEFT" layoutX="8.0" layoutY="305.0" prefHeight="23.0" prefWidth="258.0" styleClass="text-normal" text="Portioner" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="300.0" />
+                        <Label fx:id="recipeDetailIngredientsLabel" alignment="TOP_LEFT" layoutX="18.0" layoutY="320.0" prefHeight="75.0" prefWidth="249.0" styleClass="text-normal" text="Ingredienser2" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="320.0">
                            <font>
                               <Font size="10.0" />
                            </font>
