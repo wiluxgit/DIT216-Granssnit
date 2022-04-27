@@ -52,7 +52,7 @@
                               <String fx:value="text-big" />
                            </styleClass>
                         </Label>
-                        <Label fx:id="recipeDetailInstructionsLabel" alignment="TOP_LEFT" layoutX="330.0" layoutY="219.0" prefHeight="301.0" prefWidth="451.0" styleClass="text-normal" text="Tillagning2" wrapText="true" AnchorPane.leftAnchor="290.0" AnchorPane.topAnchor="170.0" />
+                        <Label fx:id="recipeDetailInstructionsLabel" alignment="TOP_LEFT" layoutX="330.0" layoutY="219.0" prefHeight="301.0" prefWidth="451.0" styleClass="text-normal" text="Tillagning2" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="290.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="170.0" />
                         <Label fx:id="recipeDetailTimeLabel" layoutX="418.0" layoutY="39.0" prefHeight="24.0" prefWidth="110.0" styleClass="text-small" text="Tid" AnchorPane.leftAnchor="418.0" AnchorPane.topAnchor="42.0">
                            <font>
                               <Font size="10.0" />
@@ -69,12 +69,12 @@
                            </font>
                         </Label>
                         <Label fx:id="recipeDetailPortionsLabel" alignment="TOP_LEFT" layoutX="8.0" layoutY="305.0" prefHeight="23.0" prefWidth="114.0" styleClass="text-normal" text="Portioner" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="300.0" />
-                        <Label fx:id="recipeDetailIngredientsLabel" alignment="TOP_LEFT" layoutX="18.0" layoutY="320.0" prefHeight="138.0" prefWidth="114.0" styleClass="text-normal" text="Ingredienser2" wrapText="true" AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="320.0">
+                        <Label fx:id="recipeDetailIngredientsLabel" alignment="TOP_LEFT" layoutX="18.0" layoutY="320.0" prefHeight="138.0" prefWidth="114.0" styleClass="text-normal" text="Ingredienser2" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="320.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label fx:id="recipeDetailLabel" alignment="TOP_LEFT" layoutX="305.0" layoutY="7.0" prefHeight="34.0" prefWidth="427.0" styleClass="text-header" text="Receptnamn" AnchorPane.leftAnchor="282.0" AnchorPane.topAnchor="7.0">
+                        <Label fx:id="recipeDetailLabel" alignment="TOP_LEFT" layoutX="305.0" layoutY="7.0" prefHeight="34.0" prefWidth="427.0" styleClass="text-header" text="Receptnamn" AnchorPane.leftAnchor="282.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="7.0">
                            <font>
                               <Font size="24.0" />
                            </font>
