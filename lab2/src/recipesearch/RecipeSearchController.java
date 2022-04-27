@@ -47,7 +47,8 @@ public class RecipeSearchController implements Initializable {
     @FXML Label recipeDetailInstructionsLabel;
     @FXML Label recipeDetailPortionsLabel;
     @FXML Label recipeDetailIngredientsLabel;
-    @FXML ImageView recipeCloseImageView;
+    @FXML ImageView recipeDetailCuisineImage;
+    @FXML ImageView recipeDetailCloseImageView;
 
     private Map<String, RecipeListItem> recipeListItemMap = new HashMap<String, RecipeListItem>();
     RecipeDatabase db = RecipeDatabase.getSharedInstance();
@@ -78,10 +79,16 @@ public class RecipeSearchController implements Initializable {
             try {
                 recipeDetailDifficultyImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(difficultyPath)));
             } catch (Exception e){}
-        var mainIngredientPath = RecipeRetriever.Cuisine.getPathByKey(recipe.getMainIngredient());
+        var mainIngredientPath = RecipeRetriever.MainIngredient.getPathByKey(recipe.getMainIngredient());
         if (mainIngredientPath != null) {
             try {
                 recipeDetailMainIngredientImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(mainIngredientPath)));
+            } catch (Exception e){}
+        }
+        var cuisinePath = RecipeRetriever.Cuisine.getPathByKey(recipe.getCuisine());
+        if (mainIngredientPath != null) {
+            try {
+                recipeDetailCuisineImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(cuisinePath)));
             } catch (Exception e){}
         }
 
@@ -95,14 +102,14 @@ public class RecipeSearchController implements Initializable {
 
     @FXML
     public void closeButtonMouseEntered(){
-        recipeCloseImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+        recipeDetailCloseImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                 "RecipeSearch/resources/icon_close_hover.png")));
     }
 
     @FXML
     public void closeButtonMousePressed(){
         //samma princip som ovan, ta rätt bild
-        recipeCloseImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+        recipeDetailCloseImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                 "RecipeSearch/resources/icon_close_pressed.png")));
     }
 
@@ -110,7 +117,7 @@ public class RecipeSearchController implements Initializable {
     public void closeButtonMouseExited(){
         //samma princip som ovan, ta rätt bild. Denna metod ska återställa bilden
         //ifall användaren tar bort musen.
-        recipeCloseImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+        recipeDetailCloseImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                 "RecipeSearch/resources/icon_close.png")));
     }
 

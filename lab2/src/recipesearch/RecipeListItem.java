@@ -51,20 +51,22 @@ public class RecipeListItem extends AnchorPane {
         recipePriceLabel.setText(recipe.getPrice() + " kr");
         recipeDescriptionLabel.setText(recipe.getDescription());
 
-        var cuisinePath = RecipeRetriever.Cuisine.getPathByKey(recipe.getCuisine());
-        if (cuisinePath != null)
-            recipeCuisineImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(cuisinePath)));
-
-        var mainIngredientPath = RecipeRetriever.Cuisine.getPathByKey(recipe.getMainIngredient());
-        if (mainIngredientPath != null)
-            System.out.println(mainIngredientPath);
+        var difficultyPath = RecipeRetriever.Difficulty.getPathByKey(recipe.getDifficulty());
+        if (difficultyPath != null)
+            try {
+                recipeDifficultyImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(difficultyPath)));
+            } catch (Exception e){}
+        var mainIngredientPath = RecipeRetriever.MainIngredient.getPathByKey(recipe.getMainIngredient());
+        if (mainIngredientPath != null) {
             try {
                 recipeMainIngredientImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(mainIngredientPath)));
             } catch (Exception e){}
-
-        var difficultyPath = RecipeRetriever.Difficulty.getPathByKey(recipe.getDifficulty());
-        if (difficultyPath != null) {
-            recipeDifficultyImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(difficultyPath)));
+        }
+        var cuisinePath = RecipeRetriever.Cuisine.getPathByKey(recipe.getCuisine());
+        if (mainIngredientPath != null) {
+            try {
+                recipeCuisineImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(cuisinePath)));
+            } catch (Exception e){}
         }
 
         this.recipe = recipe;
