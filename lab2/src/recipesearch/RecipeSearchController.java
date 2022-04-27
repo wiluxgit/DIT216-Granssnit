@@ -39,6 +39,14 @@ public class RecipeSearchController implements Initializable {
     @FXML Label recipeDetailLabel;
     @FXML ImageView recipeDetailImageView;
     @FXML Button recipeDetailButtonClose;
+    @FXML ImageView recipeDetailMainIngredientImage;
+    @FXML ImageView recipeDetailDifficultyImage;
+    @FXML Label recipeDetailTimeLabel;
+    @FXML Label recipeDetailPriceLabel;
+    @FXML Label recipeDetailDescriptionLabel;
+    @FXML Label recipeDetailInstructionsLabel;
+    @FXML Label recipeDetailPortionsLabel;
+    @FXML Label recipeDetailIngredientsLabel;
 
     private Map<String, RecipeListItem> recipeListItemMap = new HashMap<String, RecipeListItem>();
     RecipeDatabase db = RecipeDatabase.getSharedInstance();
@@ -58,6 +66,28 @@ public class RecipeSearchController implements Initializable {
     public void populateRecipeDetailView(Recipe recipe){
         recipeDetailLabel.setText(recipe.getName());
         recipeDetailImageView.setImage(recipe.getFXImage());
+        recipeDetailDescriptionLabel.setText(recipe.getDescription());
+        recipeDetailInstructionsLabel.setText(recipe.getInstruction());
+        recipeDetailPortionsLabel.setText("Portioner:"+recipe.getServings());
+        recipeDetailTimeLabel.setText("Tid:"+recipe.getTime()+ " minuter");
+        recipeDetailPriceLabel.setText("Pris:"+recipe.getTime()+ " kr");
+
+        var difficultyPath = RecipeRetriever.Difficulty.getPathByKey(recipe.getDifficulty());
+        if (difficultyPath != null)
+            recipeDetailDifficultyImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(difficultyPath)));
+        var mainIngredientPath = RecipeRetriever.Cuisine.getPathByKey(recipe.getMainIngredient());
+        if (mainIngredientPath != null)
+            System.out.println(mainIngredientPath);
+        try {
+            recipeDetailMainIngredientImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(mainIngredientPath)));
+        } catch (Exception e){}
+
+        StringBuilder sb = new StringBuilder();
+        for (var x : recipe.getIngredients()){
+            sb.append(x + "\n");
+        }
+        sb.deleteCharAt(sb.length()-1);
+        recipeDetailIngredientsLabel.setText(sb.toString());
     }
 
     @Override

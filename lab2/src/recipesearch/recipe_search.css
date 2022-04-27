@@ -1,5 +1,5 @@
 .text-normal{
-    /* -fx-font-size: 12px; */
+    -fx-font-size: 13px;
     -fx-font-family: "Lucida Sans";
 }
 .text-small{
@@ -9,6 +9,13 @@
 .text-big{
     -fx-font-size: 20px;
     -fx-font-family: "Lucida Sans";
+}
+.text-header{
+    -fx-font-size: 30px;
+    -fx-font-family: "Lucida Sans";
+}
+.text-bold{
+    -fx-font-weight: bold;
 }
 .recipe-list-item{
     -fx-border-width: 2px;
