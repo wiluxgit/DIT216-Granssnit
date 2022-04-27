@@ -34,11 +34,11 @@ public class RecipeSearchController implements Initializable {
     @FXML Label chosenTimeLabel;
 
     @FXML AnchorPane recipeDetailPane;
+    @FXML AnchorPane recipeDetailPaneBackground;
     @FXML SplitPane searchPane;
 
     @FXML Label recipeDetailLabel;
     @FXML ImageView recipeDetailImageView;
-    @FXML Button recipeDetailButtonClose;
     @FXML ImageView recipeDetailMainIngredientImage;
     @FXML ImageView recipeDetailDifficultyImage;
     @FXML Label recipeDetailTimeLabel;
@@ -61,7 +61,7 @@ public class RecipeSearchController implements Initializable {
     }
     public void openRecipeView(Recipe recipe){
         populateRecipeDetailView(recipe);
-        recipeDetailPane.toFront();
+        recipeDetailPaneBackground.toFront();
     }
 
     public void populateRecipeDetailView(Recipe recipe){
@@ -75,13 +75,15 @@ public class RecipeSearchController implements Initializable {
 
         var difficultyPath = RecipeRetriever.Difficulty.getPathByKey(recipe.getDifficulty());
         if (difficultyPath != null)
-            recipeDetailDifficultyImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(difficultyPath)));
+            try {
+                recipeDetailDifficultyImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(difficultyPath)));
+            } catch (Exception e){}
         var mainIngredientPath = RecipeRetriever.Cuisine.getPathByKey(recipe.getMainIngredient());
-        if (mainIngredientPath != null)
-            System.out.println(mainIngredientPath);
-        try {
-            recipeDetailMainIngredientImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(mainIngredientPath)));
-        } catch (Exception e){}
+        if (mainIngredientPath != null) {
+            try {
+                recipeDetailMainIngredientImage.setImage(new Image(getClass().getClassLoader().getResourceAsStream(mainIngredientPath)));
+            } catch (Exception e){}
+        }
 
         StringBuilder sb = new StringBuilder();
         for (var x : recipe.getIngredients()){
