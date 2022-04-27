@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane stylesheets="@recipe_search.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recipesearch.RecipeSearchController">
+<AnchorPane stylesheets="@recipe_search.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recipesearch.RecipeSearchController">
    <children>
       <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -60,7 +60,10 @@
             </SplitPane>
             <AnchorPane fx:id="recipeDetailPane" style="-fx-background-color: #00FFFF;" StackPane.alignment="CENTER">
                <children>
-                  <ImageView fx:id="recipeCloseImageView" fitHeight="34.0" fitWidth="36.0" layoutX="733.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ImageView fx:id="recipeCloseImageView" fitHeight="34.0" fitWidth="36.0" layoutX="733.0" onMouseClicked="#closeRecipeView" onMouseEntered="#closeButtonMouseEntered" onMouseExited="#closeButtonMouseExited" onMousePressed="#closeButtonMousePressed" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                     <image>
+                        <Image url="@resources/icon_close.png" />
+                     </image></ImageView>
                   <ImageView fx:id="recipeDetailImageView" fitHeight="276.0" fitWidth="276.0" pickOnBounds="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <image>
                         <Image url="@../../recipes/chicken-tikka-masala.jpg" />
